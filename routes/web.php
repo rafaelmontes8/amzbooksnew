@@ -11,24 +11,35 @@
 |
 */
 
+Auth::routes();
+/* Principal Links */
 Route::get('/', function () {
     return redirect('portal');
 });
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
-
-/* Route::get('/correo', 'Email@enviarcorreo'); */
 Route::get('/portal', 'PublicityController@index');
 
-Route::post('/newbooks', 'ApiController@addbook')->name('newbooks');
-Route::get('/searchbook', 'ApiController@search');
+/* Admin Management */
+Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/search', 'HomeController@search');
+Route::get('/logout', 'Auth\LoginController@logout');
+Route::resource('users', 'UserEmailController');
 
+/* Book Management */
+Route::resource('ajaxbooks','BookController');
+Route::post('/newbooks', 'ApiController@addbook')->name('newbooks');
+Route::post('/rating', 'BookController@rating');
+Route::get('/removefromlist/{id}', 'BookController@removefromlist');
+Route::get('/addtolist/{id}', 'BookController@addtolist');
+Route::post('/deletebook', 'BookController@destroybook');
+Route::get('/searchbook', 'BookController@search');
+
+/* API */
+Route::get('/api/searchbook', 'ApiController@filtersearchbook');
+Route::get('/api/searchauthor', 'ApiController@filtersearchauthor');
 Route::get('/api/books/{key}', 'ApiController@getbooks');
 
-
-Route::resource('ajaxbooks','BookController');
-
-Route::get('create', 'DisplayDataController@create');
-Route::get('index', 'DisplayDataController@index');
+/* User Access */
+Route::get('/lista', 'HomeController@lista')->name('lista');
+Route::get('/verify', 'UserEmailController@verification');
+Route::get('/show/{id}', 'BookController@showbook');
+Route::post('/postcomment', 'BookController@writecomment');

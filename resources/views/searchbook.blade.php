@@ -82,21 +82,22 @@
 
 				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
 					<span class="navbar-toggler-icon"></span>
-				</button> <a class="navbar-brand" href="main.php">AmzBooks</a>
+				</button> <a class="navbar-brand" href="/home">AmzBooks</a>
 				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 					<ul class="navbar-nav">
 						<li class="nav-item">
-							 <a class="nav-link" href="estanteria.php">Lista</a>
+							 <a class="nav-link" href="/lista">Bookshelf</a>
 						</li>
 					</ul>
 					<ul class="navbar-nav ml-md-auto">
 						<li class="nav-item dropdown">
-							 <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown">Opciones</a>
+							 <a class="nav-link dropdown-toggle" href="" id="navbarDropdownMenuLink" data-toggle="dropdown">Opciones</a>
 							<div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-                                <a @if(Auth::user()->role != 'admin') {{'style="display:none"'}}  @endif class="dropdown-item" href="/ajaxbooks">Panel Admin</a>
+                                    <a @if(Auth::user()->role != 'admin') {{'style="display:none"'}}  @endif class="dropdown-item" href="/users">User Panel</a>
+                                    <a @if(Auth::user()->role != 'admin') {{'style="display:none"'}}  @endif class="dropdown-item" href="/ajaxbooks">Panel Admin</a>
                                 <a @if(Auth::user()->role != 'admin') {{'style="display:none"'}}  @endif class="dropdown-item" href="/searchbook">Añadir Libros</a>
 								<div class="dropdown-divider">
-								</div> <a class="dropdown-item" href="logout">Logout</a>
+								</div> <a class="dropdown-item" href="{{ route('logout') }}">Logout</a>
 							</div>
 						</li>
 					</ul>
@@ -104,8 +105,8 @@
             </nav>
             <div class="container-fluid">
                 <div class="row" style="justify-content:center;margin-top: 25vh" >
-                <form action="{{route('newbooks')}}" method="post">
-                    @csrf
+                    <form action="{{route('newbooks')}}" method="post">
+                        @csrf
                         <input type="search" name="busqueda"  placeholder="Insert title and press enter" id="busqueda" style="width: 50vw">
                     </form>
                 </div>

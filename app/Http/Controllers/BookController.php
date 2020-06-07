@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Yajra\Datatables\Datatables;
 use App\Book;
+use App\UserBook;
+use App\Comments;
+use Auth;
 
 class BookController extends Controller
 {
@@ -28,9 +31,9 @@ class BookController extends Controller
             return Datatables::of($data)
                     ->addIndexColumn()
                     ->addColumn('action', function($row){
-                           $btn = '<a href="javascript:void(0)" data-toggle="tooltip"  data-id="'.$row->id.'" data-original-title="Edit" class="edit btn btn-primary btn-sm editBook">Edit</a>';
+                           $btn = '<a href="javascript:void(0)" data-toggle="tooltip"  data-id="'.$row->id.'" data-original-title="Edit" class="edit btn btn-primary btn-sm editBook"><i class="fas fa-edit"></i></a>';
 
-                           $btn = $btn.' <a href="javascript:void(0)" data-toggle="tooltip"  data-id="'.$row->id.'" data-original-title="Delete" class="btn btn-danger btn-sm deleteBook">Delete</a>';
+                           $btn = $btn.' <a href="javascript:void(0)" data-toggle="tooltip"  data-id="'.$row->id.'" data-original-title="Delete" class="btn btn-danger btn-sm deleteBook"><i class="fas fa-trash"></i></a>';
                             return $btn;
                     })
                     ->rawColumns(['action'])
@@ -49,7 +52,7 @@ class BookController extends Controller
     {
         \Log::info($request->all());
         Book::updateOrCreate(['id' => $request->Book_id],
-                ['title' => $request->title, 'description' => $request->description, 'author' => $request->author]);
+                ['title' => $request->title, 'description' => $request->description, 'author' => $request->author, 'image' => $request->image]);
 
         return response()->json(['success'=>'Book saved successfully.']);
     }
@@ -77,144 +80,81 @@ class BookController extends Controller
 
         return response()->json(['success'=>'Book deleted successfully.']);
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    //Sin ajax
-
-
-
-
-
-
-
-
-
-
-
-
-     /**
-     * Display a listing of the resource.
+    /**
+     * Add the specified book to the list.
      *
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    /*
-    public function index()
-    {
-        $items = Item::latest()->paginate(5);
-
-        return view('items.index',compact('items'))
-            ->with('i', (request()->input('page', 1) - 1) * 5);
+    public function addtolist($id){
+        $user=Auth::user()->id;
+        UserBook::Create(['userId' => $user, 'bookId' => $id]);
+        return back()->withInput();
     }
- */
     /**
-     * Show the form for creating a new resource.
+     * Remove the specified book from the list.
      *
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    /*
-    public function create()
-    {
-        return view('items.create');
-    } */
+    public function removefromlist($id){
+        $user=Auth::user()->id;
+        UserBook::where(['userId' => $user, 'bookId' => $id])->delete();
+        return back()->withInput();
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    /*
-    public function store(Request $request)
-    {
-        $request->validate([
-            'name' => 'required',
-            'description' => 'required',
-        ]);
-
-        Item::create($request->all());
-
-        return redirect()->route('items.index')
-                        ->with('success','Item created successfully.');
     }
- */
     /**
-     * Display the specified resource.
+     * Shows a specified book from the page.
      *
-     * @param  \App\Item  $Item
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    /*
-    public function show(Item $item)
-    {
-        return view('items.show',compact('item'));
-    } */
+    public function showbook($id){
+        $libro=Book::find($id);
+        $comments=Comments::where('bookid','=',$id)->orderBy('id','DESC')->paginate(5);
+        $userbooks=UserBook::all();
 
+        return view('showbook',compact('libro','comments','userbooks'));
+    }
     /**
-     * Show the form for editing the specified resource.
+     * Creates a new comment in the book page.
      *
-     * @param  \App\Item  $Item
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    /*
-    public function edit(Item $item)
-    {
-        return view('items.edit',compact('item'));
-    } */
+    public function writecomment(Request $request){
+        $user=Auth::user()->id;
+        $username=Auth::user()->name;
+        Comments::Create(['username' =>$username,'userid' => $user, 'bookid' => $request->bookid,'comment' => $request->comment]);
 
+        return back()->withInput();
+    }
     /**
-     * Update the specified resource in storage.
+     * Creates or Updates a Rating in a specified book and user.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Item  $Item
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    /*
-    public function update(Request $request, Item $item)
-    {
-        $request->validate([
-            'name' => 'required',
-            'description' => 'required',
-        ]);
+    public function rating(Request $request){
+        $user=Auth::user()->id;
+        $old=UserBook::where('userId',$user)->where('bookId',$request->idbook)->first();
+        if($old){
+            UserBook::find($old->id)->update(['rating' => $request->rating]);
+        }else{
+            UserBook::updateOrCreate(['userId' => $user, 'bookId' => $request->idbook,'rating' => $request->rating]);
+        }
+        return back()->withInput();
+    }
 
-        $item->update($request->all());
+    public function destroybook(Request $request){
+    if(Auth::user()->role == 'admin'){
+        Book::find($request->id)->delete();
+    }
+       return redirect('home');
+    }
 
-        return redirect()->route('items.index')
-                        ->with('success','Item updated successfully');
-    } */
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Item  $Item
-     * @return \Illuminate\Http\Response
-     */
-    /*
-    public function destroy(Item $item)
-    {
-        $item->delete();
-
-        return redirect()->route('items.index')
-                        ->with('success','Item deleted successfully');
-    } */
-
-
-
-
-
-
-
-
-
+    public function search(){
+        $books=Book::all();
+        return view('searchbook',compact('books'));
+    }
 }

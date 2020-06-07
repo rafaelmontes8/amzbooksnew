@@ -38,37 +38,43 @@
 				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 					<ul class="navbar-nav">
 						<li class="nav-item">
-							 <a class="nav-link" href="estanteria.php">Lista</a>
+							 <a class="nav-link" href="/lista">Bookshelf</a>
 						</li>
-					</ul>
+                    </ul>
+                    <form class="form-inline" method="get" action="/search">
+                        <input class="form-control mr-sm-2" type="text" name="search" placeholder="Search..."/>
+						<button class="btn btn-primary my-2 my-sm-0" type="submit">
+							Search
+						</button>
+					</form>
 					<ul class="navbar-nav ml-md-auto">
 						<li class="nav-item dropdown">
-							 <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown">Opciones</a>
+							 <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown">Options</a>
 							<div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-                                <a @if(Auth::user()->role != 'admin') {{'style="display:none"'}}  @endif class="dropdown-item" href="/ajaxbooks">Panel Admin</a>
-                                <a @if(Auth::user()->role != 'admin') {{'style="display:none"'}}  @endif class="dropdown-item" href="/searchbook">Añadir Libros</a>
+                                    <a @if(Auth::user()->role != 'admin') {{'style="display:none"'}}  @endif class="dropdown-item" href="/users">User Panel</a>
+                                    <a @if(Auth::user()->role != 'admin') style="display:none"  @endif class="dropdown-item" href="/ajaxbooks">Admin Panel</a>
+                                <a @if(Auth::user()->role != 'admin') style="display:none"  @endif class="dropdown-item" href="/searchbook">Add Books</a>
 								<div class="dropdown-divider">
-								</div> <a class="dropdown-item" href="/logout">Logout</a>
+								</div> <a class="dropdown-item" href="{{ route('logout') }}">Logout</a>
 							</div>
 						</li>
 					</ul>
 				</div>
-			</nav>
-        <h1 style="text-align: center;margin-top:6%;color:white">Bienvenido, {{ Auth::user()->name }}</h1>
+            </nav>
+        <h1 style="text-align: center;margin-top:20vh;color:white">Welcome, {{ Auth::user()->name }}</h1>
             <div style="margin-top:1%;" class="row">
                 @foreach ($books as $libro)
 
 				<div class="col-md-2">
 
-					<div style="height:600px;margin-bottom:5%; background-color:#181A1B;color:white;" class="card">
+                    <div style="height:600px;margin-bottom:5%; background-color:#181A1B;color:white;" class="card">
+                    <a href="/show/{{$libro->id}}">
                     <img style="height:450px" class="card-img-top" alt="Bootstrap Thumbnail Third" src="@if($libro->image=="img/no-image.png" || $libro->image==""){{asset("img/no-image.png")}}@else{{$libro->image}}@endif" />
-
+                    </a>
 						<div class="card-block">
-							<h5 class="card-title">
+							<h5 class="card-title" style="height:70px;max-height: 70px;">
                                 {{$libro->title}}
 							</h5>
-							<p class="card-text">
-                            </p>
                                 @php
                                         $comprobacion = false;
                                 @endphp
@@ -82,11 +88,11 @@
 
                                 @if($comprobacion)
                                     <div class="card-body d-flex flex-column align-items-end">
-                                    <a class="btn btn-success" style="bottom: 0px;right: 0px;" href="remove_list.php?id={{$libro->id}}">Añadido</a>
+                                    <a class="btn btn-success" style="bottom: 0px;right: 0px;" href="/removefromlist/{{$libro->id}}">Añadido</a>
                                     </div>
                                 @else
                                     <div class="card-body d-flex flex-column align-items-end">
-                                    <a class="btn btn-primary" style=";bottom: 0px;right: 0px;" href="add_list.php?id={{$libro->id}}">Añadir</a>
+                                    <a class="btn btn-primary" style=";bottom: 0px;right: 0px;" href="/addtolist/{{$libro->id}}">Añadir</a>
                                     </div>
                                 @endif
 						</div>
@@ -96,7 +102,7 @@
 				</div>
 				@endforeach
             </div>
-            <div style="justify-content: center">
+            <div class="pagination" style="justify-content:center">
                 {{$books->links()}}
             </div>
 		</div>

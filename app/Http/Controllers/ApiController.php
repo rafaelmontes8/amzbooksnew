@@ -8,11 +8,13 @@ use App\ApiKeys;
 
 class ApiController extends Controller
 {
+
+
     public function getbooks($key) {
         $apis= ApiKeys::all();
         $validation=false;
         foreach ($apis as $api) {
-            if ($api->key == $key){
+            if ($api->apikey == $key){
                 $validation=true;
             }
         }
@@ -110,7 +112,6 @@ class ApiController extends Controller
                                 'author' => $autor,
                                 'image' => $portada,
                                 'publisher' => $editorial]);
-                    /* $conexion->exec("INSERT INTO libro(titulo, portada, autor, editorial) VALUES ('$titulo', '$portada', '$autor', '$editorial' ) "); */
                 }
                 if(!isset($item->volumeInfo->authors[0]) && !isset($item->volumeInfo->publisher)){
                     $titulo = $item->volumeInfo->title;
@@ -135,14 +136,46 @@ class ApiController extends Controller
                 }
             }
         }
-        return view('bookajax');
+        return view('bookAjax');
 
 
 
     }
 
-    public function search(){
-        $books=Book::all();
-        return view('searchbook',compact('books'));
+    public function filtersearchbook(Request $request){
+        $search=$request->get('search');
+        $key=$request->get('key');
+        $apis= ApiKeys::all();
+        $validation=false;
+        foreach ($apis as $api) {
+            if ($api->apikey == $key){
+                $validation=true;
+            }
+        }
+        $books=Book::where('title','like','%'.$search.'%')->orderBy('id','DESC')->get();
+        if($validation){
+            return response()->json($books);
+        }else{
+            return response()->json(['fail'=>'Api Key incorrecta']);
+        }
     }
+
+    public function filtersearchauthor(Request $request){
+        $search=$request->get('search');
+        $key=$request->get('key');
+        $apis= ApiKeys::all();
+        $validation=false;
+        foreach ($apis as $api) {
+            if ($api->apikey == $key){
+                $validation=true;
+            }
+        }
+        $books=Book::where('author', 'like', '%'.$search.'%')->orderBy('id','DESC')->get();
+        if($validation){
+            return response()->json($books);
+        }else{
+            return response()->json(['fail'=>'Api Key incorrecta']);
+        }
+    }
+
 }

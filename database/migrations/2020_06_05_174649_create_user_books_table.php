@@ -17,6 +17,7 @@ class CreateUserBooksTable extends Migration
             $table->bigIncrements('id');
             $table->bigInteger('userId');
             $table->bigInteger('bookId');
+            $table->float('rating');
             $table->timestamps();
         });
     }

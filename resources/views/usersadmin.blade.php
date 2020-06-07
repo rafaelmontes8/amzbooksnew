@@ -32,7 +32,7 @@
                             <li class="nav-item dropdown">
                                  <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown">Options</a>
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-                                    <a @if(Auth::user()->role != 'admin') {{'style="display:none"'}}  @endif class="dropdown-item" href="/ajaxbooks">Panel Admin</a>
+                                    <a @if(Auth::user()->role != 'admin') {{'style="display:none"'}}  @endif class="dropdown-item" href="/ajaxbooks">Book Panel</a>
                                     <a @if(Auth::user()->role != 'admin') {{'style="display:none"'}}  @endif class="dropdown-item" href="/users">User Panel</a>
                                     <a @if(Auth::user()->role != 'admin') {{'style="display:none"'}}  @endif class="dropdown-item" href="/searchbook">Add Books</a>
                                     <div class="dropdown-divider">
@@ -52,7 +52,7 @@
          <div class="card-header">
             <div class="col-md-12">
                 <h4 class="card-title">
-                  <a class="btn btn-success ml-5" href="javascript:void(0)" id="createNewBook"> Create New Book</a>
+                  <a class="btn btn-success ml-5" href="javascript:void(0)" id="createNewUser"> Create New User</a>
                 </h4>
             </div>
          </div>
@@ -61,9 +61,10 @@
                 <thead>
                     <tr>
                         <th width="5%">ID</th>
-                        <th>Title</th>
-                        <th>Author</th>
-                        <th>Description</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Role</th>
+                        <th width="5%">Verification</th>
                         <th width="15%">Action</th>
                     </tr>
                 </thead>
@@ -78,30 +79,36 @@
                         <h4 class="modal-title" id="modelHeading"></h4>
                     </div>
                     <div class="modal-body">
-                        <form id="BookForm" name="BookForm" class="form-horizontal">
-                           <input type="hidden" name="Book_id" id="Book_id">
+                        <form id="UserForm" name="UserForm" class="form-horizontal">
+                           <input type="hidden" name="User_id" id="User_id">
                             <div class="form-group">
-                                <label for="title" class="col-sm-2 control-label">Title</label>
+                                <label for="title" class="col-sm-2 control-label">Name</label>
                                 <div class="col-sm-12">
-                                    <input type="text" class="form-control" id="title" name="title" placeholder="Enter Book Title" value="" maxlength="50" required="">
+                                    <input type="text" class="form-control" id="name" name="name" placeholder="Enter User Name" value="" maxlength="50" required="">
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-sm-3 control-label">descriptions</label>
+                                <label class="col-sm-3 control-label">email</label>
                                 <div class="col-sm-12">
-                                    <textarea id="description" name="description" required="" placeholder="Enter descriptions" class="form-control"></textarea>
+                                    <textarea id="email" name="email" required="" placeholder="Enter email" class="form-control"></textarea>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-sm-3 control-label">Author</label>
+                                <label class="col-sm-3 control-label">Password</label>
                                 <div class="col-sm-12">
-                                    <textarea id="author" name="author" required="" placeholder="Enter Author's name" class="form-control"></textarea>
+                                    <input type="text" id="password" name="password" required="" placeholder="Password..." class="form-control">
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-sm-3 control-label">Image</label>
+                                <label class="col-sm-3 control-label">Role</label>
                                 <div class="col-sm-12">
-                                    <input type="text" id="image" name="image" required="" placeholder="Enter Image URL" class="form-control">
+                                    <textarea id="role" name="role" required="" placeholder="Enter User's role" class="form-control"></textarea>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">Verification</label>
+                                <div class="col-sm-12">
+                                    <input type="text" id="verification" name="verification" required="" placeholder="Enter 1 if verified" class="form-control">
                                 </div>
                             </div>
                             <div class="col-sm-offset-2 col-sm-10">
@@ -130,35 +137,37 @@
     var table = $('.data-table').DataTable({
         processing: true,
         serverSide: true,
-        ajax: "{{ route('ajaxbooks.index') }}",
+        ajax: "{{ route('users.index') }}",
         columns: [
             {data: 'DT_RowIndex', name: 'DT_RowIndex'},
-            {data: 'title', name: 'title'},
-            {data: 'author', name: 'author'},
-            {data: 'description', name: 'description'},
+            {data: 'name', name: 'name'},
+            {data: 'email', name: 'email'},
+            {data: 'role', name: 'role'},
+            {data: 'verification', name: 'verification', searchable: false},
             {data: 'action', name: 'action', orderable: false, searchable: false},
         ]
     });
 
-    $('#createNewBook').click(function () {
-        $('#saveBtn').val("create-Book");
-        $('#Book_id').val('');
-        $('#BookForm').trigger("reset");
-        $('#modelHeading').html("Create New Book");
+    $('#createNewUser').click(function () {
+        $('#saveBtn').val("create-User");
+        $('#User_id').val('');
+        $('#UserForm').trigger("reset");
+        $('#modelHeading').html("Create New User");
         $('#ajaxModel').modal('show');
     });
 
-    $('body').on('click', '.editBook', function () {
-      var Book_id = $(this).data('id');
-      $.get("{{ route('ajaxbooks.index') }}" +'/' + Book_id +'/edit', function (data) {
-          $('#modelHeading').html("Edit Book");
-          $('#saveBtn').val("edit-book");
+    $('body').on('click', '.editUser', function () {
+      var User_id = $(this).data('id');
+      $.get("{{ route('users.index') }}" +'/' + User_id +'/edit', function (data) {
+          $('#modelHeading').html("Edit User");
+          $('#saveBtn').val("edit-user");
           $('#ajaxModel').modal('show');
-          $('#Book_id').val(data.id);
-          $('#title').val(data.title);
-          $('#author').val(data.author);
-          $('#description').val(data.description);
-          $('#image').val(data.image);
+          $('#User_id').val(data.id);
+          $('#name').val(data.name);
+          $('#email').val(data.email);
+          $('#role').val(data.role);
+          $('#password').val(data.password);
+          $('#verification').val(data.verification);
       })
    });
 
@@ -167,13 +176,13 @@
         $(this).html('Sending..');
 
         $.ajax({
-          data: $('#BookForm').serialize(),
-          url: "{{ route('ajaxbooks.store') }}",
+          data: $('#UserForm').serialize(),
+          url: "{{ route('users.store') }}",
           type: "POST",
           dataType: 'json',
           success: function (data) {
 
-              $('#BookForm').trigger("reset");
+              $('#UserForm').trigger("reset");
               $('#ajaxModel').modal('hide');
               table.draw();
 
@@ -185,14 +194,14 @@
       });
     });
 
-    $('body').on('click', '.deleteBook', function () {
+    $('body').on('click', '.deleteUser', function () {
 
-        var Book_id = $(this).data("id");
+        var User_id = $(this).data("id");
         confirm("Are You sure want to delete ?");
 
         $.ajax({
             type: "DELETE",
-            url: "{{ route('ajaxbooks.store') }}"+'/'+Book_id,
+            url: "{{ route('users.store') }}"+'/'+User_id,
             success: function (data) {
                 table.draw();
             },

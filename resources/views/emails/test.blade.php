@@ -1,16 +1,3 @@
-{{-- <!DOCTYPE html>
-    <html lang="en-US">
-    	<head>
-    		<meta charset="utf-8">
-    	</head>
-    	<body>
-        <h2>Bienvenido a AmzBooks, </h2>
-
-            <p></p>
-            Haga click en el siguiente enlace para verificar su cuenta: <a href="http://" target="_blank" rel="noopener noreferrer"></a>
-    	</body>
-    </html>
- --}}
     <!doctype html>
     <html>
      <head><meta charset="utf-8">
@@ -280,7 +267,7 @@
                       <td width="580" valign="top" align="center">
                        <table width="100%" cellspacing="0" cellpadding="0" role="presentation">
                          <tr>
-                          <td align="center" style="font-size:0"><a href="https://rafaelmontesweb.es" target="_blank"><img src="https://i.ibb.co/RCtLQ2M/14421504177408436.png" alt="logo" title="AmzBooks logo" width="109" height="66"></img></a></td>
+                          <td align="center" style="font-size:0"><a href="https://proyecto.rafaelmontesweb.es" target="_blank"><img src="https://i.ibb.co/RCtLQ2M/14421504177408436.png" alt="logo" title="AmzBooks logo" width="109" height="66"></img></a></td>
                          </tr>
                        </table></td>
                      </tr>
@@ -336,7 +323,7 @@
                           <td align="left"><p>We've added your email to your account, as you requested. Your email will be used if you forgot your password and for important account message. Your email must be verified.</p></td>
                          </tr>
                          <tr>
-                          <td class="es-p20t es-p20b" align="left"><span class="es-button-border"><a href="https://rafaelmontesweb.es/confirmemail" class="es-button" target="_blank" style="border-width: 10px 25px;">Verify Email</a></span></td>
+                          <td class="es-p20t es-p20b" align="left"><span class="es-button-border"><a href="https://proyecto.rafaelmontesweb.es/verify" class="es-button" target="_blank" style="border-width: 10px 25px;">Verify Email</a></span></td>
                          </tr>
                          <tr>
                           <td align="left"><p>If you need help contact the admin.</p></td>
@@ -377,7 +364,7 @@
                       <td class="es-m-p0r es-m-p20b" width="174" align="center">
                        <table width="100%" cellspacing="0" cellpadding="0" role="presentation">
                          <tr>
-                          <td class="es-m-p0l es-p10b" align="left" style="font-size:0"><a href="https://rafaelmontesweb.es" target="_blank"><img src="https://i.ibb.co/RCtLQ2M/14421504177408436.png" width="103" height="63"></img></a></td>
+                          <td class="es-m-p0l es-p10b" align="left" style="font-size:0"><a href="https://proyecto.rafaelmontesweb.es" target="_blank"><img src="https://i.ibb.co/RCtLQ2M/14421504177408436.png" width="103" height="63"></img></a></td>
                          </tr>
                        </table></td>
                       <td class="es-hidden" width="20"></td>
@@ -388,7 +375,7 @@
                       <td class="es-m-p0r es-m-p20b" width="173" align="center">
                        <table width="100%" cellspacing="0" cellpadding="0" role="presentation">
                          <tr>
-                          <td align="left"><p><a target="_blank" href="https://rafaelmontesweb.es">Reviews</a></p><p><a target="_blank" href="https://rafaelmontesweb.es">Partners</a><br><a target="_blank" href="https://rafaelmontesweb.es">Store</a><br><a target="_blank" href="https://rafaelmontesweb.es/">Customer Support</a></p></td>
+                          <td align="left"><p><a target="_blank" href="https://proyecto.rafaelmontesweb.es">Reviews</a></p><p><a target="_blank" href="https://proyecto.rafaelmontesweb.es">Partners</a><br><a target="_blank" href="https://proyecto.rafaelmontesweb.es">Store</a><br><a target="_blank" href="https://proyecto.rafaelmontesweb.es/">Customer Support</a></p></td>
                          </tr>
                        </table></td>
                      </tr>

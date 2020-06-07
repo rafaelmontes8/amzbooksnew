@@ -5,7 +5,10 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <title>AMZBOOKS</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.0/css/bootstrap.min.css" integrity="sha384-SI27wrMjH3ZZ89r4o+fGIJtnzkAnFs3E4qz9DIYioCQ5l9Rd/7UAa8DHcaL8jkWt" crossorigin="anonymous">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.0/anime.js" integrity="sha256-nnFnuz7rC1JLnvsb8M7A9aXcRHTpUN4vYA26t2UO+dQ=" crossorigin="anonymous"></script>
+	    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.0/js/bootstrap.min.js" integrity="sha384-3qaqj0lc6sV/qpzrc1N5DC6i1VRn/HyX4qdPaiEFbn54VjQBEU341pvjz7Dv3n6P" crossorigin="anonymous"></script>
+
 
         <style>
 
@@ -27,7 +30,7 @@
             line-height: 1.25;
             background-color: #000000;
             }
-
+/*
             .grid {
             width: 100%;
             max-width: 60rem;
@@ -153,7 +156,8 @@
             box-shadow: 5px 5px rgba(4, 140, 231, 0.4), 10px 10px rgba(4, 140, 231, 0.3),
                 15px 15px rgba(4, 140, 231, 0.2), 20px 20px rgba(4, 140, 231, 0.1),
                 25px 25px rgba(4, 140, 231, 0.05);
-            }
+            } */
+
             .logo{
                 height: 245px;
             }
@@ -213,10 +217,28 @@
                 background: #e50914;
             }
 
-            @media screen and (max-width: 480px) {
+            .message{
+            top: 0;
 
             }
 
+            @media screen and (max-width: 480px) {
+                .grid .image-grid{
+                    display: none;
+                }
+            }
+
+            /* .flex-container {
+                display: flex;
+                flex-wrap: nowrap;
+                justify-content: center;
+            }
+
+            .flex-container > div {
+                text-align: center;
+                line-height: 75px;
+                font-size: 30px;
+            } */
         </style>
 
         <!-- Fonts -->
@@ -233,9 +255,48 @@
         <form action="/login">
             <button type="submit">Launch</button>
         </form>
-    {{-- <img src="{{asset("img/amzlogo.png")}}" alt=""> --}}
-        <div class="grid image-grid">
 
+        <h3 class="heading message">What do you want to read today?</h3>
+
+    <div class="container-fluid" style="padding:3vw">
+        <div class="row">
+            <div class="col-lg-4">
+                <div class="embed-responsive embed-responsive-16by9">
+                    <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/s8zBR1l4Tgc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="embed-responsive embed-responsive-16by9">
+                    <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/S6WuzK8qGpo" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="embed-responsive embed-responsive-16by9">
+                    <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/mS60CMh1zPs" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+        <div class="row" style="margin-top: 2vw">
+            <div class="col-lg-4">
+                <div class="embed-responsive embed-responsive-16by9">
+                    <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/iqPi9jZu7V0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="embed-responsive embed-responsive-16by9">
+                    <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/zy40wRmGq9c" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="embed-responsive embed-responsive-16by9">
+                    <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/A3M0GgI0xQk" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    {{-- <div class="grid image-grid">
             <div class="grid-block">
               <div class="tile">
                 <a class="tile-link" href="#">
@@ -316,7 +377,7 @@
               </div>
             </div>
 
-          </div>
+          </div> --}}
           <script src="{{asset("js/main.js")}}"></script>
     </body>
 </html>
