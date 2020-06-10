@@ -14,79 +14,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="icon" type="image/ico" href="{{asset("img/favicon.ico")}}"/>
     <title>AmzBooks</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.0/css/bootstrap.min.css" integrity="sha384-SI27wrMjH3ZZ89r4o+fGIJtnzkAnFs3E4qz9DIYioCQ5l9Rd/7UAa8DHcaL8jkWt" crossorigin="anonymous">
-
-    <style>
-		body{
-			background-color:#181A1B;
-        }
-
-        .container { margin: 150px auto; }
-        @media (min-width: 768px) {
-
-        .carousel-inner .carousel-item-right.active,
-        .carousel-inner .carousel-item-next {
-            transform: translateX(50%);
-        }
-
-        .carousel-inner .carousel-item-left.active,
-        .carousel-inner .carousel-item-prev {
-            transform: translateX(-50%);
-        }
-        }
-
-        /* large - display 3 */
-        @media (min-width: 992px) {
-
-        .carousel-inner .carousel-item-right.active,
-        .carousel-inner .carousel-item-next {
-            transform: translateX(33%);
-        }
-
-        .carousel-inner .carousel-item-left.active,
-        .carousel-inner .carousel-item-prev {
-            transform: translateX(-33%);
-        }
-        }
-
-        @media (max-width: 768px) {
-        .carousel-inner .carousel-item>div {
-            display: none;
-        }
-
-        .carousel-inner .carousel-item>div:first-child {
-            display: block;
-        }
-        }
-
-        .carousel-inner .carousel-item.active,
-        .carousel-inner .carousel-item-next,
-        .carousel-inner .carousel-item-prev {
-        display: flex;
-        }
-
-        .carousel-inner .carousel-item-right,
-        .carousel-inner .carousel-item-left {
-        transform: translateX(0);
-        }
-
-        .logo{
-            height: 245px;
-        }
-
-        .amzlogo{
-            text-align:center;
-            justify-content: center;
-            position: relative;
-            overflow: hidden;
-            transform: scale(1);
-        }
-
-	</style>
+    <link rel="stylesheet" href="{{asset("css/main.css")}}">
 </head>
-<body>
-
+<body class="body-home">
     <div class="container-fluid">
 	<div class="row">
 		<div class="col-md-12">
@@ -117,12 +50,12 @@
 				</div>
             </nav>
             <div class="container-fluid">
-                <div class="logo">
-                    <div class="amzlogo">
-                        <img class="amz" src="{{ asset('img/amzbooks.svg') }}" alt="">
+                <div class="logo-searchbook">
+                    <div class="amzlogo-searchbook">
+                        <img src="{{ asset('img/amzbooks.svg') }}" alt="">
                     </div>
                 </div>
-                <div class="row" style="justify-content:center;margin-top: 15vh" >
+                <div class="row" style="justify-content:center;margin-top: 15vh">
                     <form class="form-inline" action="{{route('newbooks')}}" method="post">
                         @csrf
                         <input class="form-control mr-sm-2" type="search" name="busqueda"  placeholder="Insert title and press enter" id="busqueda" style="width: 40vw">
@@ -132,7 +65,7 @@
                     </form>
                 </div>
 
-                <div class="container ">
+                <div class="container carrusel">
                     <div class="row mx-auto my-auto">
                         <div id="myCarousel" class="carousel slide w-100" data-ride="carousel">
                             <div class="carousel-inner w-100" role="listbox">

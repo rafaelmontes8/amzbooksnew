@@ -1,68 +1,16 @@
-{{-- @extends('layouts.app')
-
-@section('content')
-
-
-
- --}}
-
-
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="icon" type="image/ico" href="{{asset("img/favicon.ico")}}"/>
     <title>AmzBooks</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.0/css/bootstrap.min.css" integrity="sha384-SI27wrMjH3ZZ89r4o+fGIJtnzkAnFs3E4qz9DIYioCQ5l9Rd/7UAa8DHcaL8jkWt" crossorigin="anonymous">
-
-    <style>
-		body{
-			background-color:#181A1B;
-        }
-
-        .logo{
-            height: 245px;
-        }
-
-        .amzlogo{
-            margin-top: 7vh;
-                text-align:center;
-                justify-content: center;
-                position: relative;
-                overflow: hidden;
-            }
-        .heading{
-            color: #fff;
-            text-transform: uppercase;
-            position: relative;
-            top: 0px;
-            padding: 0;
-            text-align: center;
-            font-family: arial;
-            font-size: 45px;
-            letter-spacing: 10px;
-            }
-            .ichart{
-                margin-top: 15vh;
-                padding-left: 0;
-                padding-right: 0;
-                margin-left: auto;
-                margin-right: auto;
-                display: block;
-                width: 80vw;
-            }
-        @media screen and (min-width: 1000px) {
-            .ichart{
-                width: 40vw;
-            }
-        }
-
-    </style>
+    <link rel="stylesheet" href="{{asset("css/main.css")}}">
 
 </head>
-<body>
+<body class="body-home">
 
     <div class="container-fluid">
 	<div class="row">
@@ -94,11 +42,11 @@
 				</div>
             </nav>
             <div class="container-fluid">
-                <div class="logo">
-                    <div class="amzlogo">
+                <div class="logo-profile">
+                    <div class="amzlogo-profile">
                         <img class="img-fluid" src="{{ asset('img/amzbooks.svg') }}" alt="">
                     </div>
-                    <h3 class="heading">Profile</h3>
+                    <h3 class="heading-profile">Profile</h3>
                 </div>
             </div>
             <div class="row ichart">

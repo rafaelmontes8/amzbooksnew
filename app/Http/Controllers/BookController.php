@@ -12,6 +12,11 @@ use Auth;
 class BookController extends Controller
 {
 
+    /**
+     * __construct
+     *
+     * @return void
+     */
     public function __construct()
     {
         $this->middleware('auth');
@@ -146,7 +151,6 @@ class BookController extends Controller
     /**
      * Creates or Updates a Rating in a specified book and user.
      *
-     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function rating(Request $request){
@@ -163,7 +167,6 @@ class BookController extends Controller
     /**
      * Destroys a book from the front if you are using an admin user.
      *
-     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function destroybook(Request $request){
@@ -176,8 +179,7 @@ class BookController extends Controller
     /**
      * Returns the book search in Api view.
      *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return view with $books param
      */
     public function search(){
         $books=Book::all();

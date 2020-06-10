@@ -1,0 +1,375 @@
+    /* Portal */
+    .body-portal {
+        margin: 0;
+        min-height: 100vh;
+        font-size: 1rem;
+        line-height: 1.25;
+        background-color: #000000;
+    }
+
+    .logo-portal{
+        height: 245px;
+    }
+
+    .amzlogo-portal{
+        text-align:center;
+        justify-content: center;
+        top: 100px;
+        position: relative;
+        height: 520px;
+        overflow: hidden;
+        transform: scale(1);
+    }
+
+
+    .heading-portal{
+    color: #fff;
+    text-transform: uppercase;
+    position: relative;
+    top: -180px;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    font-family: arial;
+    font-size: 45px;
+    letter-spacing: 10px;
+    }
+
+    @import url(https://fonts.googleapis.com/css?family=Roboto:300);
+
+    .form-portal {
+        top:-80%;
+        position: relative;
+        z-index: 1;
+        max-width: 380px;
+        margin: 0 auto 100px;
+        text-align: center;
+    }
+
+    .form-portal button {
+        margin-top: 90%;
+        font-family: "Roboto", sans-serif;
+        text-transform: uppercase;
+        outline: 0;
+        background: #e50914;
+        width: 100%;
+        border: 0;
+        padding: 15px;
+        color: #FFFFFF;
+        font-size: 14px;
+        -webkit-transition: all 0.3 ease;
+        transition: all 0.3 ease;
+        cursor: pointer;
+    }
+
+    .form-portal button:hover,.form button:active,.form button:focus {
+        background: #000000;
+    }
+
+    .message{
+    top: 0;
+
+    }
+
+
+    .col-md-6-portal{
+        padding:1vw;
+    }
+
+    /* Home */
+    .body-home{
+        background-color:#181A1B;
+    }
+
+    .welcome{
+        text-align: center;
+        margin-top:16vh;
+        margin-bottom:6vh;
+        color:white;
+    }
+
+    .div-home{
+        margin-top:1%;
+    }
+
+    .div2-home{
+        height:600px;
+        margin-bottom:5%;
+        background-color:#181A1B;
+        color:white;
+    }
+
+    .img-book-home{
+        height:450px;
+    }
+
+    .booktitle-home{
+        height:70px;
+        max-height: 70px;
+        padding-top: 2vh;
+    }
+
+    .add-button{
+        padding-right: 0;
+    }
+
+    .custom-link{
+        justify-content:center;
+    }
+
+    /* Profile */
+
+    .logo-profile{
+        height: 245px;
+    }
+
+    .amzlogo-profile{
+        margin-top: 7vh;
+            text-align:center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+    .heading-profile{
+        color: #fff;
+        text-transform: uppercase;
+        position: relative;
+        top: 0px;
+        padding: 0;
+        text-align: center;
+        font-family: arial;
+        font-size: 45px;
+        letter-spacing: 10px;
+        }
+    .ichart{
+        margin-top: 15vh;
+        padding-left: 0;
+        padding-right: 0;
+        margin-left: auto;
+        margin-right: auto;
+        display: block;
+        width: 80vw;
+    }
+    @media screen and (min-width: 1000px) {
+        .ichart{
+            width: 40vw;
+        }
+    }
+
+
+    .carrusel { margin: 150px auto; }
+    @media (min-width: 768px) {
+
+    .carousel-inner .carousel-item-right.active,
+    .carousel-inner .carousel-item-next {
+        transform: translateX(50%);
+    }
+
+    .carousel-inner .carousel-item-left.active,
+    .carousel-inner .carousel-item-prev {
+        transform: translateX(-50%);
+    }
+    }
+
+    /* large - display 3 */
+    @media (min-width: 992px) {
+
+    .carousel-inner .carousel-item-right.active,
+    .carousel-inner .carousel-item-next {
+        transform: translateX(33%);
+    }
+
+    .carousel-inner .carousel-item-left.active,
+    .carousel-inner .carousel-item-prev {
+        transform: translateX(-33%);
+    }
+    }
+
+    @media (max-width: 768px) {
+    .carousel-inner .carousel-item>div {
+        display: none;
+    }
+
+    .carousel-inner .carousel-item>div:first-child {
+        display: block;
+    }
+    }
+
+    .carousel-inner .carousel-item.active,
+    .carousel-inner .carousel-item-next,
+    .carousel-inner .carousel-item-prev {
+    display: flex;
+    }
+
+    .carousel-inner .carousel-item-right,
+    .carousel-inner .carousel-item-left {
+    transform: translateX(0);
+    }
+
+    /* Searchbook */
+
+    .logo-searchbook{
+        height: 245px;
+    }
+
+    .amzlogo-searchbook{
+        text-align:center;
+        justify-content: center;
+        position: relative;
+        overflow: hidden;
+        transform: scale(1);
+    }
+
+    /* Showbook */
+    .bookdiv-show{
+        text-align: center;
+    }
+
+    .booktitle-show{
+        color:white;
+    }
+
+    .show-caracteristica{
+        color:white;
+        margin-left: 5vw;
+    }
+
+    .ratingstar{
+        margin-left: 4.7vw;
+    }
+
+    .comment-box{
+        margin: 5%;
+        color: white;
+        border: 2px ridge #A42404;
+        padding: 1vw;
+    }
+
+    .comment-btn{
+        margin-top:2vw;
+    }
+
+    /* Login y Register */
+
+
+    .logo-login{
+        height: 572px;
+    }
+
+    .amzlogo-login{
+        text-align:center;
+        justify-content: center;
+        top: -100px;
+        position: relative;
+        height: 520px;
+        overflow: hidden;
+        transform: scale(0.4);
+    }
+
+    .amzlogo-login:after{
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 200%;
+        height: 100%;
+        background: linear-gradient(to right, transparent, #000, #000);
+        animation: animate 4s linear forwards;
+    }
+
+    @keyframes animate{
+        0%{
+            right: 0;
+        }
+        100%{
+            right: -200%;
+        }
+    }
+
+
+
+    .heading-login{
+    color: #fff;
+    text-transform: uppercase;
+    position: relative;
+    top: -180px;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    font-family: arial;
+    font-size: 45px;
+    letter-spacing: 10px;
+    }
+
+    .login-page {
+    width: 360px;
+    padding: 1% 0 0;
+    margin: auto;
+    }
+    .form-login {
+        top:-180px;
+        right: 1.5%;
+    position: relative;
+    z-index: 1;
+    background: #8d0c14;
+    max-width: 360px;
+    margin: 0 auto 100px;
+    padding: 40px;
+    text-align: center;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+    }
+    .form-login input {
+    font-family: "Roboto", sans-serif;
+    outline: 0;
+    background: #f2f2f2;
+    width: 100%;
+    border: 0;
+    margin: 0 0 15px;
+    padding: 15px;
+    box-sizing: border-box;
+    font-size: 14px;
+    }
+    .form-login button {
+    font-family: "Roboto", sans-serif;
+    text-transform: uppercase;
+    outline: 0;
+    background: #000;
+    width: 100%;
+    border: 0;
+    padding: 15px;
+    color: #FFFFFF;
+    font-size: 14px;
+    -webkit-transition: all 0.3 ease;
+    transition: all 0.3 ease;
+    cursor: pointer;
+    }
+    .form-login button:hover,.form button:active,.form button:focus {
+    background: #e50914;
+    }
+    .form-login .message {
+    margin: 15px 0 0;
+    color: #FFF;
+    font-size: 12px;
+    }
+    .form-login .message a {
+    color: #000;
+    }
+    .form-login .register-form {
+    display: none;
+    }
+
+    .body-login {
+    background: #000000;
+    font-family: "Roboto", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    }
+
+    .invalid-feedback-login {
+        display: inline;
+        width: 100%;
+        margin-top: 0.25rem;
+        font-size: 80%;
+        color: #000000;
+    }
+

@@ -1,35 +1,20 @@
-{{-- @extends('layouts.app')
-
-@section('content')
-
-
-
- --}}
-
-
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="icon" type="image/ico" href="{{asset("img/favicon.ico")}}"/>
     <title>AmzBooks</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.0/css/bootstrap.min.css" integrity="sha384-SI27wrMjH3ZZ89r4o+fGIJtnzkAnFs3E4qz9DIYioCQ5l9Rd/7UAa8DHcaL8jkWt" crossorigin="anonymous">
-<link rel="stylesheet" href="{{asset('css/jquery.rateyo.css')}}">
+    <link rel="stylesheet" href="{{asset('css/jquery.rateyo.css')}}">
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.0/js/bootstrap.min.js" integrity="sha384-3qaqj0lc6sV/qpzrc1N5DC6i1VRn/HyX4qdPaiEFbn54VjQBEU341pvjz7Dv3n6P" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
-
-    <style>
-		body{
-			background-color:#181A1B;
-		}
-	</style>
+    <link rel="stylesheet" href="{{asset("css/main.css")}}">
 </head>
-<body>
-
+<body class="body-home">
     <div class="container-fluid">
 	<div class="row">
 		<div class="col-md-12">
@@ -41,7 +26,7 @@
 				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 					<ul class="navbar-nav">
 						<li class="nav-item">
-							 <a class="nav-link" href="/lista">Lista</a>
+							 <a class="nav-link" href="/lista">BookShelf</a>
 						</li>
 					</ul>
 					<ul class="navbar-nav ml-md-auto">
@@ -61,9 +46,9 @@
 			</nav>
             <div style="margin-top:10vh;">
 
-                <img class="img-fluid mx-auto d-block" style="height:450px;" alt="book cover" src="@if($libro->image=="img/no-image.png" || $libro->image==""){{asset("img/no-image.png")}}@else{{$libro->image}}@endif" />
-                            <div class="mx-auto d-block" style="text-align: center">
-                                <h3 style="color:white">
+                <img class="img-fluid mx-auto d-block img-book-home" alt="book cover" src="@if($libro->image=="img/no-image.png" || $libro->image==""){{asset("img/no-image.png")}}@else{{$libro->image}}@endif" />
+                            <div class="mx-auto d-block bookdiv-show">
+                                <h3 class="booktitle-show">
                                     {{$libro->title}}
                                 </h3>
                                     @php
@@ -99,15 +84,15 @@
                                     @endif
                             </div>
 
-                            <div style="margin-left: 4.7vw" id="rateYo"></div>
+                            <div class="ratingstar" id="rateYo"></div>
                             <form id="ratingform" action="/rating" method="post">
                                 @csrf
                                 <input type="hidden" name="idbook" value="{{$libro->id}}">
                                 <input type="hidden" name="rating" id="rating">
                             </form>
-                            <h4 style="color:white; margin-left: 5vw">Author: {{$libro->author}}</h4>
-                            <h4 style="color:white; margin-left: 5vw">Publisher: {{$libro->publisher}}</h4>
-                            <h4 style="color:white; margin-left: 5vw">Description:</h4>
+                            <h4 class="show-caracteristica">Author: {{$libro->author}}</h4>
+                            <h4 class="show-caracteristica">Publisher: {{$libro->publisher}}</h4>
+                            <h4 class="show-caracteristica">Description:</h4>
                         <p style="color:white;margin:5%">
                             @if($libro->description == "" || $libro->description=="null" || $libro->description == null)
                             This book doesnt have a description.
@@ -117,20 +102,20 @@
                             <div class="form-group" style="margin:5%">
                                 <form action="/postcomment" method="post">
                                     @csrf
-                                    <label for="comment">Comment</label>
+                                    <label class="booktitle-show" for="comment">Comment</label>
                                     <textarea class="form-control" type="text" name="comment" id="comment" rows="4" placeholder="Write a comment"></textarea>
                                 <input style="display: none" type="text" name="bookid" value="{{$libro->id}}">
-                                    <button style="margin-top:2vw " type="submit" class="btn btn-primary">Send</button>
+                                    <button type="submit" class="btn btn-primary comment-btn">Send</button>
                                 </form>
                             </div>
             </div>
             @foreach ($comments as $comment)
-                <div style="margin: 5%;color: white;border: 2px ridge #A42404;padding: 1vw">
+                <div class="comment-box">
                     <h4>{{$comment->username}} @if(Auth::user()->role == 'admin' || Auth::user()->id==$comment->userid)<a href="/deletecomment/{{$comment->id}}"><i class="fas fa-trash"></i></a>@endif</h4><p>{{$comment->created_at}}</p>
                 <p>{{$comment->comment}}</p>
                 </div>
             @endforeach
-            <div class="pagination" style="justify-content:center">
+            <div class="pagination custom-link">
                 {{$comments->links()}}
             </div>
 		</div>
