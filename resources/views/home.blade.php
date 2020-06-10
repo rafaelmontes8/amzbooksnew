@@ -54,6 +54,7 @@
                                     <a @if(Auth::user()->role != 'admin') {{'style="display:none"'}}  @endif class="dropdown-item" href="/users">User Panel</a>
                                     <a @if(Auth::user()->role != 'admin') style="display:none"  @endif class="dropdown-item" href="/ajaxbooks">Admin Panel</a>
                                 <a @if(Auth::user()->role != 'admin') style="display:none"  @endif class="dropdown-item" href="/searchbook">Add Books</a>
+                                <a class="dropdown-item" href="/profile">Profile</a>
 								<div class="dropdown-divider">
 								</div> <a class="dropdown-item" href="{{ route('logout') }}">Logout</a>
 							</div>
@@ -61,18 +62,18 @@
 					</ul>
 				</div>
             </nav>
-        <h1 style="text-align: center;margin-top:20vh;color:white">Welcome, {{ Auth::user()->name }}</h1>
+        <h1 style="text-align: center;margin-top:16vh;margin-bottom:6vh;color:white">Welcome, {{ Auth::user()->name }}</h1>
             <div style="margin-top:1%;" class="row">
                 @foreach ($books as $libro)
 
-				<div class="col-md-2">
+				<div class="col-xl-2 col-lg-3 col-md-4 col-sm-6">
 
                     <div style="height:600px;margin-bottom:5%; background-color:#181A1B;color:white;" class="card">
                     <a href="/show/{{$libro->id}}">
                     <img style="height:450px" class="card-img-top" alt="Bootstrap Thumbnail Third" src="@if($libro->image=="img/no-image.png" || $libro->image==""){{asset("img/no-image.png")}}@else{{$libro->image}}@endif" />
                     </a>
 						<div class="card-block">
-							<h5 class="card-title" style="height:70px;max-height: 70px;">
+							<h5 class="card-title" style="height:70px;max-height: 70px;padding-top: 2vh">
                                 {{$libro->title}}
 							</h5>
                                 @php
@@ -87,12 +88,12 @@
                                 @endforeach
 
                                 @if($comprobacion)
-                                    <div class="card-body d-flex flex-column align-items-end">
-                                    <a class="btn btn-success" style="bottom: 0px;right: 0px;" href="/removefromlist/{{$libro->id}}">Añadido</a>
+                                    <div class="card-body d-flex flex-column align-items-end" style="padding-right: 0">
+                                    <a class="btn btn-success" style="bottom: 0px;right: 0px;" href="/removefromlist/{{$libro->id}}">Added</a>
                                     </div>
                                 @else
-                                    <div class="card-body d-flex flex-column align-items-end">
-                                    <a class="btn btn-primary" style=";bottom: 0px;right: 0px;" href="/addtolist/{{$libro->id}}">Añadir</a>
+                                    <div class="card-body d-flex flex-column align-items-end" style="padding-right: 0">
+                                    <a class="btn btn-primary" style=";bottom: 0px;margin:0;" href="/addtolist/{{$libro->id}}">Add</a>
                                     </div>
                                 @endif
 						</div>

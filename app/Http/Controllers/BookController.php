@@ -123,10 +123,24 @@ class BookController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function writecomment(Request $request){
-        $user=Auth::user()->id;
         $username=Auth::user()->name;
+        $user=Auth::user()->id;
         Comments::Create(['username' =>$username,'userid' => $user, 'bookid' => $request->bookid,'comment' => $request->comment]);
 
+        return back()->withInput();
+    }
+
+    /**
+     * Deletes a comment if the user is the owner.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function deletecomment($id){
+        $user=Auth::user()->id;
+        $username=Auth::user()->name;
+        \Log::info('Comentario borrado por '.$username);
+        Comments::find($id)->delete();
         return back()->withInput();
     }
     /**
@@ -146,6 +160,12 @@ class BookController extends Controller
         return back()->withInput();
     }
 
+    /**
+     * Destroys a book from the front if you are using an admin user.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
     public function destroybook(Request $request){
     if(Auth::user()->role == 'admin'){
         Book::find($request->id)->delete();
@@ -153,6 +173,12 @@ class BookController extends Controller
        return redirect('home');
     }
 
+    /**
+     * Returns the book search in Api view.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
     public function search(){
         $books=Book::all();
         return view('searchbook',compact('books'));

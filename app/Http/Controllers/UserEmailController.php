@@ -11,6 +11,11 @@ use Illuminate\Support\Facades\Hash;
 
 class UserEmailController extends Controller
 {
+    /**
+     * Controls the unregistered access to the page.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function __construct()
     {
         $this->middleware('auth');

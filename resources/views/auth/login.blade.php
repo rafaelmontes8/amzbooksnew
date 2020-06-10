@@ -159,6 +159,15 @@
     .img{
     width: 1246px;
     }
+
+    .invalid-feedback {
+        display: inline;
+        width: 100%;
+        margin-top: 0.25rem;
+        font-size: 80%;
+        color: #000000;
+    }
+
 	</style>
 </head>
 <body>
@@ -177,7 +186,7 @@
 			<form method="post" class="login-form" action="{{ route('login') }}">
                 @csrf
 				<!-- email -->
-						<input id="email" type="email"
+                        <input id="email" type="email" class="@error('email') is-invalid @enderror"
 						name="email" placeholder="email" required autocomplete="email" autofocus/>
                         @error('email')
                             <span class="invalid-feedback" role="alert">
@@ -185,7 +194,7 @@
                             </span>
                         @enderror
 				<!-- contraseña -->
-						<input  type="password"
+						<input  type="password" class="@error('password') is-invalid @enderror"
 						name="password" placeholder="password" required />
                         @error('password')
                         <span class="invalid-feedback" role="alert">

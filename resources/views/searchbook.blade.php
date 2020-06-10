@@ -71,6 +71,18 @@
         transform: translateX(0);
         }
 
+        .logo{
+            height: 245px;
+        }
+
+        .amzlogo{
+            text-align:center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            transform: scale(1);
+        }
+
 	</style>
 </head>
 <body>
@@ -95,7 +107,8 @@
 							<div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
                                     <a @if(Auth::user()->role != 'admin') {{'style="display:none"'}}  @endif class="dropdown-item" href="/users">User Panel</a>
                                     <a @if(Auth::user()->role != 'admin') {{'style="display:none"'}}  @endif class="dropdown-item" href="/ajaxbooks">Panel Admin</a>
-                                <a @if(Auth::user()->role != 'admin') {{'style="display:none"'}}  @endif class="dropdown-item" href="/searchbook">Añadir Libros</a>
+                                    <a @if(Auth::user()->role != 'admin') {{'style="display:none"'}}  @endif class="dropdown-item" href="/searchbook">Añadir Libros</a>
+                                    <a class="dropdown-item" href="/profile">Profile</a>
 								<div class="dropdown-divider">
 								</div> <a class="dropdown-item" href="{{ route('logout') }}">Logout</a>
 							</div>
@@ -104,10 +117,18 @@
 				</div>
             </nav>
             <div class="container-fluid">
-                <div class="row" style="justify-content:center;margin-top: 25vh" >
-                    <form action="{{route('newbooks')}}" method="post">
+                <div class="logo">
+                    <div class="amzlogo">
+                        <img class="amz" src="{{ asset('img/amzbooks.svg') }}" alt="">
+                    </div>
+                </div>
+                <div class="row" style="justify-content:center;margin-top: 15vh" >
+                    <form class="form-inline" action="{{route('newbooks')}}" method="post">
                         @csrf
-                        <input type="search" name="busqueda"  placeholder="Insert title and press enter" id="busqueda" style="width: 50vw">
+                        <input class="form-control mr-sm-2" type="search" name="busqueda"  placeholder="Insert title and press enter" id="busqueda" style="width: 40vw">
+                        <button class="btn btn-primary my-2 my-sm-0" type="submit">
+							Search
+						</button>
                     </form>
                 </div>
 

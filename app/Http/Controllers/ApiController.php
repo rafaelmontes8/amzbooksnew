@@ -9,7 +9,11 @@ use App\ApiKeys;
 class ApiController extends Controller
 {
 
-
+    /**
+     * Display a listing of books and checks the apikey.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function getbooks($key) {
         $apis= ApiKeys::all();
         $validation=false;
@@ -26,6 +30,11 @@ class ApiController extends Controller
         }
     }
 
+    /**
+     * Converts the input text in a slug.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function slugify($text){
 
         // replace non letter or digits by -
@@ -53,6 +62,11 @@ class ApiController extends Controller
         return $text;
         }
 
+    /**
+     * Add book from the google books api.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function addbook(Request $request) {
         $busqueda=$this->slugify($request->busqueda);
         $datos=file_get_contents('https://www.googleapis.com/books/v1/volumes?q='.$busqueda.'&key=AIzaSyBaF1Qgm592Z14Tjyzi_I9pGnVk9DoC6sI');
@@ -142,6 +156,11 @@ class ApiController extends Controller
 
     }
 
+    /**
+     * Display a listing of books with a similar title based on a search input.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function filtersearchbook(Request $request){
         $search=$request->get('search');
         $key=$request->get('key');
@@ -160,6 +179,11 @@ class ApiController extends Controller
         }
     }
 
+    /**
+     * Display a listing of Authors similar to an input search.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function filtersearchauthor(Request $request){
         $search=$request->get('search');
         $key=$request->get('key');

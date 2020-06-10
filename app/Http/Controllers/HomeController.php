@@ -29,7 +29,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $books=Book::orderBy('id','DESC')->paginate(24);
+        $books=Book::orderBy('id','DESC')->paginate(18);
         $userbooks=UserBook::all();
         return view('home',compact('books','userbooks'));
     }
@@ -68,6 +68,27 @@ class HomeController extends Controller
         $books=Book::where('title','like','%'.$search.'%')->orWhere('author', 'like', '%'.$search.'%')->orWhere('description', 'like', '%'.$search.'%')->orderBy('id','DESC')->paginate(24);
         $userbooks=UserBook::all();
         return view('home',compact('books','userbooks'));
+    }
+    /**
+     * Show the profile of the user.
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function profile(){
+        /* $books=Book::query()->where('title', 'LIKE', "%{$request->search}%")->get(); */
+        $books=Book::all()->count();
+        $userbooks=UserBook::all();
+        $contador=0;
+        $contador2=0;
+        foreach ($userbooks as $userbook) {
+            if(Auth::user()->id==$userbook->userId){
+                $contador++;
+            }
+            if(Auth::user()->id==$userbook->userId && $userbook->rating!=0){
+                $contador2++;
+            }
+        }
+        return view('profile',compact('books','contador','contador2'));
     }
 
 }

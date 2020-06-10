@@ -326,7 +326,7 @@
                           <td class="es-p20t es-p20b" align="left"><span class="es-button-border"><a href="https://proyecto.rafaelmontesweb.es/verify" class="es-button" target="_blank" style="border-width: 10px 25px;">Verify Email</a></span></td>
                          </tr>
                          <tr>
-                          <td align="left"><p>If you need help contact the admin.</p></td>
+                          <td align="left"><p>If you need help contact the admin and of course this is yout api key, use it wisely: "FIRSTKEY".</p></td>
                          </tr>
                        </table></td>
                      </tr>

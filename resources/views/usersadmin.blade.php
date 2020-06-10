@@ -35,6 +35,7 @@
                                     <a @if(Auth::user()->role != 'admin') {{'style="display:none"'}}  @endif class="dropdown-item" href="/ajaxbooks">Book Panel</a>
                                     <a @if(Auth::user()->role != 'admin') {{'style="display:none"'}}  @endif class="dropdown-item" href="/users">User Panel</a>
                                     <a @if(Auth::user()->role != 'admin') {{'style="display:none"'}}  @endif class="dropdown-item" href="/searchbook">Add Books</a>
+                                    <a class="dropdown-item" href="/profile">Profile</a>
                                     <div class="dropdown-divider">
                                     </div> <a class="dropdown-item" href="/logout">Logout</a>
                                 </div>
@@ -64,7 +65,6 @@
                         <th>Name</th>
                         <th>Email</th>
                         <th>Role</th>
-                        <th width="5%">Verification</th>
                         <th width="15%">Action</th>
                     </tr>
                 </thead>
@@ -143,7 +143,6 @@
             {data: 'name', name: 'name'},
             {data: 'email', name: 'email'},
             {data: 'role', name: 'role'},
-            {data: 'verification', name: 'verification', searchable: false},
             {data: 'action', name: 'action', orderable: false, searchable: false},
         ]
     });

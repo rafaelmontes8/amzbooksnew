@@ -9,6 +9,11 @@ use Mail;
 
 class Email extends Controller
 {
+    /**
+     * Sends an Email to the new User.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function enviarcorreo(){
 
         $data = ['message' => 'Gracias por registrarte en AmzBooks, para verificar tu cuenta haga click en el siguiente enlace'];

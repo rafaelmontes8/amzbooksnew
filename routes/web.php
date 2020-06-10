@@ -43,3 +43,6 @@ Route::get('/lista', 'HomeController@lista')->name('lista');
 Route::get('/verify', 'UserEmailController@verification');
 Route::get('/show/{id}', 'BookController@showbook');
 Route::post('/postcomment', 'BookController@writecomment');
+Route::get('/deletecomment/{id}', 'BookController@deletecomment');
+Route::get('/profile', 'HomeController@profile');
+
