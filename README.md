@@ -29,6 +29,7 @@ Y por último tenemos la vista de Perfil donde podremos ver de un vistazo en un 
 
 ![alt text](https://i.ibb.co/6vCrDWR/image.png)
 
-
+VIDEO EXPLICATIVO:
+HAZ CLICK EN LA IMAGEN
 
 [![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/OOug2tNZL-Q/0.jpg)](https://www.youtube.com/watch?v=OOug2tNZL-Q)
