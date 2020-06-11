@@ -1,0 +1,45 @@
+{
+    "name": "App\\Http\\Controllers\\PublicityController",
+    "line": 7,
+    "short_desc": "",
+    "long_desc": "",
+    "hint": null,
+    "tags": [],
+    "namespace": "App\\Http\\Controllers",
+    "file": "C:\\Users\\Rafa\\Desktop\\laravel\\amzbooksnew - copia\/app\\Http\\Controllers\\PublicityController.php",
+    "relative_file": null,
+    "hash": "22907cc7c820a3ee91c7de4997821f8e4454aeed",
+    "parent": "App\\Http\\Controllers\\Controller",
+    "modifiers": 0,
+    "is_trait": false,
+    "is_interface": false,
+    "aliases": {
+        "Request": "Illuminate\\Http\\Request"
+    },
+    "errors": [],
+    "interfaces": [],
+    "traits": [],
+    "properties": [],
+    "methods": {
+        "index": {
+            "name": "index",
+            "line": 14,
+            "short_desc": "Display a listing of the resource.",
+            "long_desc": "",
+            "hint": [
+                [
+                    "\\Illuminate\\Http\\Response",
+                    false
+                ]
+            ],
+            "hint_desc": "",
+            "tags": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": []
+        }
+    },
+    "constants": []
+}

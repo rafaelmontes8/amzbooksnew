@@ -1,0 +1,72 @@
+{
+    "name": "App\\Providers\\AuthServiceProvider",
+    "line": 8,
+    "short_desc": "",
+    "long_desc": "",
+    "hint": null,
+    "tags": [],
+    "namespace": "App\\Providers",
+    "file": "C:\\Users\\Rafa\\Desktop\\laravel\\amzbooksnew - copia\/app\\Providers\\AuthServiceProvider.php",
+    "relative_file": null,
+    "hash": "23bb61d6e12508113c213fe55eb531d14c1cb024",
+    "parent": "Illuminate\\Foundation\\Support\\Providers\\AuthServiceProvider",
+    "modifiers": 0,
+    "is_trait": false,
+    "is_interface": false,
+    "aliases": {
+        "ServiceProvider": "Illuminate\\Foundation\\Support\\Providers\\AuthServiceProvider",
+        "Gate": "Illuminate\\Support\\Facades\\Gate"
+    },
+    "errors": [],
+    "interfaces": [],
+    "traits": [],
+    "properties": {
+        "policies": {
+            "name": "policies",
+            "line": 15,
+            "short_desc": "The policy mappings for the application.",
+            "long_desc": "",
+            "hint": [
+                [
+                    "array",
+                    false
+                ]
+            ],
+            "hint_desc": "",
+            "tags": [],
+            "modifiers": 2,
+            "default": {
+                "nodeType": "Expr_Array",
+                "items": [],
+                "attributes": {
+                    "startLine": 15,
+                    "endLine": 17,
+                    "kind": 2
+                }
+            },
+            "errors": []
+        }
+    },
+    "methods": {
+        "boot": {
+            "name": "boot",
+            "line": 24,
+            "short_desc": "Register any authentication \/ authorization services.",
+            "long_desc": "",
+            "hint": [
+                [
+                    "void",
+                    false
+                ]
+            ],
+            "hint_desc": "",
+            "tags": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": []
+        }
+    },
+    "constants": []
+}

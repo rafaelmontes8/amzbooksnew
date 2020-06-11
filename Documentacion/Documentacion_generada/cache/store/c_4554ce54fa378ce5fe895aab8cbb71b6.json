@@ -1,0 +1,139 @@
+{
+    "name": "App\\UserBook",
+    "line": 7,
+    "short_desc": "",
+    "long_desc": "",
+    "hint": null,
+    "tags": [],
+    "namespace": "App",
+    "file": "C:\\Users\\Rafa\\Desktop\\laravel\\amzbooksnew - copia\/app\\UserBook.php",
+    "relative_file": null,
+    "hash": "8d9f6af04001ecc31aac1e4b9856152a930598ce",
+    "parent": "Illuminate\\Database\\Eloquent\\Model",
+    "modifiers": 0,
+    "is_trait": false,
+    "is_interface": false,
+    "aliases": {
+        "Model": "Illuminate\\Database\\Eloquent\\Model"
+    },
+    "errors": [],
+    "interfaces": [],
+    "traits": [],
+    "properties": {
+        "table": {
+            "name": "table",
+            "line": 10,
+            "short_desc": "",
+            "long_desc": "",
+            "hint": null,
+            "hint_desc": null,
+            "tags": [],
+            "modifiers": 2,
+            "default": {
+                "nodeType": "Scalar_String",
+                "value": "user_books",
+                "attributes": {
+                    "startLine": 10,
+                    "endLine": 10,
+                    "kind": 1
+                }
+            },
+            "errors": []
+        },
+        "fillable": {
+            "name": "fillable",
+            "line": 12,
+            "short_desc": "",
+            "long_desc": "",
+            "hint": null,
+            "hint_desc": null,
+            "tags": [],
+            "modifiers": 2,
+            "default": {
+                "nodeType": "Expr_Array",
+                "items": [
+                    {
+                        "nodeType": "Expr_ArrayItem",
+                        "key": null,
+                        "value": {
+                            "nodeType": "Scalar_String",
+                            "value": "id",
+                            "attributes": {
+                                "startLine": 13,
+                                "endLine": 13,
+                                "kind": 1
+                            }
+                        },
+                        "byRef": false,
+                        "attributes": {
+                            "startLine": 13,
+                            "endLine": 13
+                        }
+                    },
+                    {
+                        "nodeType": "Expr_ArrayItem",
+                        "key": null,
+                        "value": {
+                            "nodeType": "Scalar_String",
+                            "value": "userId",
+                            "attributes": {
+                                "startLine": 13,
+                                "endLine": 13,
+                                "kind": 1
+                            }
+                        },
+                        "byRef": false,
+                        "attributes": {
+                            "startLine": 13,
+                            "endLine": 13
+                        }
+                    },
+                    {
+                        "nodeType": "Expr_ArrayItem",
+                        "key": null,
+                        "value": {
+                            "nodeType": "Scalar_String",
+                            "value": "bookId",
+                            "attributes": {
+                                "startLine": 13,
+                                "endLine": 13,
+                                "kind": 1
+                            }
+                        },
+                        "byRef": false,
+                        "attributes": {
+                            "startLine": 13,
+                            "endLine": 13
+                        }
+                    },
+                    {
+                        "nodeType": "Expr_ArrayItem",
+                        "key": null,
+                        "value": {
+                            "nodeType": "Scalar_String",
+                            "value": "rating",
+                            "attributes": {
+                                "startLine": 13,
+                                "endLine": 13,
+                                "kind": 1
+                            }
+                        },
+                        "byRef": false,
+                        "attributes": {
+                            "startLine": 13,
+                            "endLine": 13
+                        }
+                    }
+                ],
+                "attributes": {
+                    "startLine": 12,
+                    "endLine": 14,
+                    "kind": 2
+                }
+            },
+            "errors": []
+        }
+    },
+    "methods": [],
+    "constants": []
+}

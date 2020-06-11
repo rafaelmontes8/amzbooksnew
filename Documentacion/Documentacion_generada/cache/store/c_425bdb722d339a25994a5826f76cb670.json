@@ -1,0 +1,28 @@
+{
+    "name": "App\\Http\\Controllers\\Auth\\ForgotPasswordController",
+    "line": 8,
+    "short_desc": "",
+    "long_desc": "",
+    "hint": null,
+    "tags": [],
+    "namespace": "App\\Http\\Controllers\\Auth",
+    "file": "C:\\Users\\Rafa\\Desktop\\laravel\\amzbooksnew - copia\/app\\Http\\Controllers\\Auth\\ForgotPasswordController.php",
+    "relative_file": null,
+    "hash": "216716bf5e303de9860940ea8ecc0094d69f7963",
+    "parent": "App\\Http\\Controllers\\Controller",
+    "modifiers": 0,
+    "is_trait": false,
+    "is_interface": false,
+    "aliases": {
+        "Controller": "App\\Http\\Controllers\\Controller",
+        "SendsPasswordResetEmails": "Illuminate\\Foundation\\Auth\\SendsPasswordResetEmails"
+    },
+    "errors": [],
+    "interfaces": [],
+    "traits": {
+        "Illuminate\\Foundation\\Auth\\SendsPasswordResetEmails": "Illuminate\\Foundation\\Auth\\SendsPasswordResetEmails"
+    },
+    "properties": [],
+    "methods": [],
+    "constants": []
+}

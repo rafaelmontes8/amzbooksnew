@@ -33,9 +33,9 @@
                             <li class="nav-item dropdown">
                                  <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown">Options</a>
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-                                    <a @if(Auth::user()->role != 'admin') {{'style="display:none"'}}  @endif class="dropdown-item" href="/ajaxbooks">Book Panel</a>
-                                    <a @if(Auth::user()->role != 'admin') {{'style="display:none"'}}  @endif class="dropdown-item" href="/users">User Panel</a>
-                                    <a @if(Auth::user()->role != 'admin') {{'style="display:none"'}}  @endif class="dropdown-item" href="/searchbook">Add Books</a>
+                                    <a @if(Auth::user()->role != 'admin') style="display:none"  @endif class="dropdown-item" href="/ajaxbooks">Book Panel</a>
+                                    <a @if(Auth::user()->role != 'admin') style="display:none"  @endif class="dropdown-item" href="/users">User Panel</a>
+                                    <a @if(Auth::user()->role != 'admin') style="display:none"  @endif class="dropdown-item" href="/searchbook">Add Books</a>
                                     <a class="dropdown-item" href="/profile">Profile</a>
                                     <div class="dropdown-divider">
                                     </div> <a class="dropdown-item" href="/logout">Logout</a>

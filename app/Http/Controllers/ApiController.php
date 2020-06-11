@@ -65,20 +65,13 @@ class ApiController extends Controller
     /**
      * Add book from the google books api.
      *
-     * @return \Illuminate\Http\Response
+     * @param  mixed $request
+     * @return void
      */
     public function addbook(Request $request) {
         $busqueda=$this->slugify($request->busqueda);
         $datos=file_get_contents('https://www.googleapis.com/books/v1/volumes?q='.$busqueda.'&key=AIzaSyBaF1Qgm592Z14Tjyzi_I9pGnVk9DoC6sI');
         $libro = json_decode($datos);
-        /*
-                if(isset($_POST['busqueda'])){
-                    $datos=file_get_contents('https://www.googleapis.com/books/v1/volumes?q='.$_POST['busqueda'].'&key=AIzaSyBaF1Qgm592Z14Tjyzi_I9pGnVk9DoC6sI');
-                }else{
-                    $datos=file_get_contents('https://www.googleapis.com/books/v1/volumes?q=harry+potter&key=AIzaSyBaF1Qgm592Z14Tjyzi_I9pGnVk9DoC6sI');
-                }
-        */
-        /* dd($libro); */
 
         foreach ($libro->items as $item){
             if(isset($item->volumeInfo->title)){
@@ -104,7 +97,6 @@ class ApiController extends Controller
                                 'image' => $portada,
                                 'editorial' => $editorial]);
 
-                   /*  $conexion->exec("INSERT INTO libro(titulo, portada, autor) VALUES ('$titulo', '$portada', '$autor' ) "); */
                 }
                 if(isset($item->volumeInfo->publisher) && isset($item->volumeInfo->authors[0])){
                     $titulo = $item->volumeInfo->title;
@@ -159,6 +151,7 @@ class ApiController extends Controller
     /**
      * Display a listing of books with a similar title based on a search input.
      *
+     * @param  mixed $request
      * @return \Illuminate\Http\Response
      */
     public function filtersearchbook(Request $request){
@@ -182,6 +175,7 @@ class ApiController extends Controller
     /**
      * Display a listing of Authors similar to an input search.
      *
+     * @param  mixed $request
      * @return \Illuminate\Http\Response
      */
     public function filtersearchauthor(Request $request){

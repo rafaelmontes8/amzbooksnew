@@ -1,0 +1,136 @@
+{
+    "name": "App\\Providers\\RouteServiceProvider",
+    "line": 8,
+    "short_desc": "",
+    "long_desc": "",
+    "hint": null,
+    "tags": [],
+    "namespace": "App\\Providers",
+    "file": "C:\\Users\\Rafa\\Desktop\\laravel\\amzbooksnew - copia\/app\\Providers\\RouteServiceProvider.php",
+    "relative_file": null,
+    "hash": "fd3bf157ceb6e00ec08beb8a015e59847fda91ba",
+    "parent": "Illuminate\\Foundation\\Support\\Providers\\RouteServiceProvider",
+    "modifiers": 0,
+    "is_trait": false,
+    "is_interface": false,
+    "aliases": {
+        "ServiceProvider": "Illuminate\\Foundation\\Support\\Providers\\RouteServiceProvider",
+        "Route": "Illuminate\\Support\\Facades\\Route"
+    },
+    "errors": [],
+    "interfaces": [],
+    "traits": [],
+    "properties": {
+        "namespace": {
+            "name": "namespace",
+            "line": 17,
+            "short_desc": "This namespace is applied to your controller routes.",
+            "long_desc": "In addition, it is set as the URL generator's root namespace.",
+            "hint": [
+                [
+                    "string",
+                    false
+                ]
+            ],
+            "hint_desc": "",
+            "tags": [],
+            "modifiers": 2,
+            "default": {
+                "nodeType": "Scalar_String",
+                "value": "App\\Http\\Controllers",
+                "attributes": {
+                    "startLine": 17,
+                    "endLine": 17,
+                    "kind": 1
+                }
+            },
+            "errors": []
+        }
+    },
+    "methods": {
+        "boot": {
+            "name": "boot",
+            "line": 31,
+            "short_desc": "Define your route model bindings, pattern filters, etc.",
+            "long_desc": "",
+            "hint": [
+                [
+                    "void",
+                    false
+                ]
+            ],
+            "hint_desc": "",
+            "tags": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": []
+        },
+        "map": {
+            "name": "map",
+            "line": 43,
+            "short_desc": "Define the routes for the application.",
+            "long_desc": "",
+            "hint": [
+                [
+                    "void",
+                    false
+                ]
+            ],
+            "hint_desc": "",
+            "tags": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": []
+        },
+        "mapWebRoutes": {
+            "name": "mapWebRoutes",
+            "line": 59,
+            "short_desc": "Define the \"web\" routes for the application.",
+            "long_desc": "These routes all receive session state, CSRF protection, etc.",
+            "hint": [
+                [
+                    "void",
+                    false
+                ]
+            ],
+            "hint_desc": "",
+            "tags": [],
+            "modifiers": 2,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": []
+        },
+        "mapApiRoutes": {
+            "name": "mapApiRoutes",
+            "line": 73,
+            "short_desc": "Define the \"api\" routes for the application.",
+            "long_desc": "These routes are typically stateless.",
+            "hint": [
+                [
+                    "void",
+                    false
+                ]
+            ],
+            "hint_desc": "",
+            "tags": [],
+            "modifiers": 2,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": []
+        }
+    },
+    "constants": {
+        "HOME": {
+            "name": "HOME",
+            "line": 24,
+            "short_desc": "The path to the \"home\" route for your application.",
+            "long_desc": ""
+        }
+    }
+}

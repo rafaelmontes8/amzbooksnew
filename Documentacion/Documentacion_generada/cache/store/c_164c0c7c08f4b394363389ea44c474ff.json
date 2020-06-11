@@ -1,0 +1,47 @@
+{
+    "name": "App\\Http\\Controllers\\Email",
+    "line": 10,
+    "short_desc": "",
+    "long_desc": "",
+    "hint": null,
+    "tags": [],
+    "namespace": "App\\Http\\Controllers",
+    "file": "C:\\Users\\Rafa\\Desktop\\laravel\\amzbooksnew - copia\/app\\Http\\Controllers\\Email.php",
+    "relative_file": null,
+    "hash": "0ac4e2f463490c9658c0db3110d95fe1b0b7a5f1",
+    "parent": "App\\Http\\Controllers\\Controller",
+    "modifiers": 0,
+    "is_trait": false,
+    "is_interface": false,
+    "aliases": {
+        "Request": "Illuminate\\Http\\Request",
+        "TestEmail": "App\\Mail\\TestEmail",
+        "Mail": "Mail"
+    },
+    "errors": [],
+    "interfaces": [],
+    "traits": [],
+    "properties": [],
+    "methods": {
+        "enviarcorreo": {
+            "name": "enviarcorreo",
+            "line": 17,
+            "short_desc": "Sends an Email to the new User.",
+            "long_desc": "",
+            "hint": [
+                [
+                    "\\Illuminate\\Http\\Response",
+                    false
+                ]
+            ],
+            "hint_desc": "",
+            "tags": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": []
+        }
+    },
+    "constants": []
+}

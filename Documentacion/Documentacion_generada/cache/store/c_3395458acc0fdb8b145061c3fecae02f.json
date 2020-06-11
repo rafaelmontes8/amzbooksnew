@@ -1,0 +1,86 @@
+{
+    "name": "App\\Http\\Controllers\\Auth\\VerificationController",
+    "line": 9,
+    "short_desc": "",
+    "long_desc": "",
+    "hint": null,
+    "tags": [],
+    "namespace": "App\\Http\\Controllers\\Auth",
+    "file": "C:\\Users\\Rafa\\Desktop\\laravel\\amzbooksnew - copia\/app\\Http\\Controllers\\Auth\\VerificationController.php",
+    "relative_file": null,
+    "hash": "dd18e90b094b9df5905ca13d2fd577ba4313f092",
+    "parent": "App\\Http\\Controllers\\Controller",
+    "modifiers": 0,
+    "is_trait": false,
+    "is_interface": false,
+    "aliases": {
+        "Controller": "App\\Http\\Controllers\\Controller",
+        "RouteServiceProvider": "App\\Providers\\RouteServiceProvider",
+        "VerifiesEmails": "Illuminate\\Foundation\\Auth\\VerifiesEmails"
+    },
+    "errors": [],
+    "interfaces": [],
+    "traits": {
+        "Illuminate\\Foundation\\Auth\\VerifiesEmails": "Illuminate\\Foundation\\Auth\\VerifiesEmails"
+    },
+    "properties": {
+        "redirectTo": {
+            "name": "redirectTo",
+            "line": 29,
+            "short_desc": "Where to redirect users after verification.",
+            "long_desc": "",
+            "hint": [
+                [
+                    "string",
+                    false
+                ]
+            ],
+            "hint_desc": "",
+            "tags": [],
+            "modifiers": 2,
+            "default": {
+                "nodeType": "Expr_ClassConstFetch",
+                "class": {
+                    "nodeType": "Name_FullyQualified",
+                    "parts": [
+                        "App",
+                        "Providers",
+                        "RouteServiceProvider"
+                    ],
+                    "attributes": {
+                        "startLine": 29,
+                        "endLine": 29
+                    }
+                },
+                "name": "HOME",
+                "attributes": {
+                    "startLine": 29,
+                    "endLine": 29
+                }
+            },
+            "errors": []
+        }
+    },
+    "methods": {
+        "__construct": {
+            "name": "__construct",
+            "line": 36,
+            "short_desc": "Create a new controller instance.",
+            "long_desc": "",
+            "hint": [
+                [
+                    "void",
+                    false
+                ]
+            ],
+            "hint_desc": "",
+            "tags": [],
+            "modifiers": 1,
+            "is_by_ref": "",
+            "exceptions": [],
+            "errors": [],
+            "parameters": []
+        }
+    },
+    "constants": []
+}

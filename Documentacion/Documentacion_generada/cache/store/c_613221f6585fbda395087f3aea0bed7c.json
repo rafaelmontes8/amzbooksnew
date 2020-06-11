@@ -1,0 +1,66 @@
+{
+    "name": "App\\Http\\Controllers\\Auth\\ResetPasswordController",
+    "line": 9,
+    "short_desc": "",
+    "long_desc": "",
+    "hint": null,
+    "tags": [],
+    "namespace": "App\\Http\\Controllers\\Auth",
+    "file": "C:\\Users\\Rafa\\Desktop\\laravel\\amzbooksnew - copia\/app\\Http\\Controllers\\Auth\\ResetPasswordController.php",
+    "relative_file": null,
+    "hash": "1ebfcccdf6511e89f353f0a587e39de447e60ece",
+    "parent": "App\\Http\\Controllers\\Controller",
+    "modifiers": 0,
+    "is_trait": false,
+    "is_interface": false,
+    "aliases": {
+        "Controller": "App\\Http\\Controllers\\Controller",
+        "RouteServiceProvider": "App\\Providers\\RouteServiceProvider",
+        "ResetsPasswords": "Illuminate\\Foundation\\Auth\\ResetsPasswords"
+    },
+    "errors": [],
+    "interfaces": [],
+    "traits": {
+        "Illuminate\\Foundation\\Auth\\ResetsPasswords": "Illuminate\\Foundation\\Auth\\ResetsPasswords"
+    },
+    "properties": {
+        "redirectTo": {
+            "name": "redirectTo",
+            "line": 29,
+            "short_desc": "Where to redirect users after resetting their password.",
+            "long_desc": "",
+            "hint": [
+                [
+                    "string",
+                    false
+                ]
+            ],
+            "hint_desc": "",
+            "tags": [],
+            "modifiers": 2,
+            "default": {
+                "nodeType": "Expr_ClassConstFetch",
+                "class": {
+                    "nodeType": "Name_FullyQualified",
+                    "parts": [
+                        "App",
+                        "Providers",
+                        "RouteServiceProvider"
+                    ],
+                    "attributes": {
+                        "startLine": 29,
+                        "endLine": 29
+                    }
+                },
+                "name": "HOME",
+                "attributes": {
+                    "startLine": 29,
+                    "endLine": 29
+                }
+            },
+            "errors": []
+        }
+    },
+    "methods": [],
+    "constants": []
+}
