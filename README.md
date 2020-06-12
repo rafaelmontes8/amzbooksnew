@@ -29,6 +29,10 @@ Y por último tenemos la vista de Perfil donde podremos ver de un vistazo en un 
 
 ![alt text](https://i.ibb.co/6vCrDWR/image.png)
 
+Usuario Admin:
+admin@admin.es
+admin
+
 VIDEO EXPLICATIVO:
 HAZ CLICK EN LA IMAGEN
 
