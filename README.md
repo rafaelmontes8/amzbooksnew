@@ -1,5 +1,7 @@
 # AmzBooksNew
 
+Enlace a la página: http://proyecto.rafaelmontesweb.es
+
 AmzBooks es una aplicación web para gestionar listas de libros, esta conectado a la base de datos sobre libros "MAS GRANDE DEL MUNDO", google books, con lo que se pueden hacer llamadas a la api para obtener cualquier libro que no este listado en la base de datos.
 
 Manual: empezando por el inicio, tenemos el login, debemos primero registrarnos, verificar nuestro correo y despues ya podremos entrar a la apalicación:
